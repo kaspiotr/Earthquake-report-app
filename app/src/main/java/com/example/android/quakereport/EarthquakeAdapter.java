@@ -13,7 +13,7 @@ import java.util.List;
 
 public class EarthquakeAdapter extends ArrayAdapter<Earthquake> {
 
-    public EarthquakeAdapter(@NonNull Context context, int resource, @NonNull List<Earthquake> listOfEarthquakes) {
+    public EarthquakeAdapter(@NonNull Context context, @NonNull List<Earthquake> listOfEarthquakes) {
         super(context, 0, listOfEarthquakes);
         // The second argument is used when the ArrayAdapter is populating a single TextView.
         // Because this is a custom adapter for two TextViews and an ImageView, the adapter is not
