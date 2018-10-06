@@ -26,7 +26,7 @@ public class EarthquakeAdapter extends ArrayAdapter<Earthquake> {
 
         View listItemView = convertView;
         if(listItemView == null) {
-            listItemView = LayoutInflater.from(getContext()).inflate(R.layout.list_item, parent, false);
+            listItemView = LayoutInflater.from(getContext()).inflate(R.layout.earthaquake_list_item, parent, false);
         }
         Earthquake currentEarthquake = (Earthquake) getItem(position);
         TextView magnituteTextView = (TextView) listItemView.findViewById(R.id.magnitute_text_view);
