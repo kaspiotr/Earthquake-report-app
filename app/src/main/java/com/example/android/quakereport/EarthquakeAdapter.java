@@ -33,8 +33,14 @@ public class EarthquakeAdapter extends ArrayAdapter<Earthquake> {
         Earthquake currentEarthquake = (Earthquake) getItem(position);
         TextView magnituteTextView = (TextView) listItemView.findViewById(R.id.magnitute_text_view);
         magnituteTextView.setText(currentEarthquake.getMagnitude());
-        TextView locationTextView = (TextView) listItemView.findViewById(R.id.location_text_view);
-        locationTextView.setText(currentEarthquake.getPlace());
+
+        String[] place = splitLocationString(currentEarthquake.getPlace());
+
+        TextView locationOffsetTextView = (TextView) listItemView.findViewById(R.id.location_offset_text_view);
+        locationOffsetTextView.setText(place[0]);
+
+        TextView primaryLocationTextView = (TextView) listItemView.findViewById(R.id.primary_location_text_view);
+        primaryLocationTextView.setText(place[1]);
 
         // Create a new Date object from the time in milliseconds of the earthquake
         Date dateObject = new Date(currentEarthquake.getTimeInMilliseconds());
@@ -72,4 +78,20 @@ public class EarthquakeAdapter extends ArrayAdapter<Earthquake> {
         SimpleDateFormat timeFormat = new SimpleDateFormat("h:mm a");
         return timeFormat.format(dateObject);
     }
+
+    private String[] splitLocationString(String location) {
+
+        String[] result = new String[2];
+
+        if(location.contains("km")) {
+            result = location.split("(?<=of)");
+        } else {
+            result[0] = "Near the";
+            result[1] = location;
+        }
+
+        return result;
+
+    }
+
 }
