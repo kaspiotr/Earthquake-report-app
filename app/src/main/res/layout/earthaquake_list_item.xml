@@ -48,6 +48,7 @@
             android:id="@+id/primary_location_text_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
             android:layout_weight="1"
             android:ellipsize="end"
             android:maxLines="2"
